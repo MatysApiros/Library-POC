@@ -12,7 +12,7 @@ O conteúdo e o desafio de entrega estão listados abaixo com a semana correspon
 
 Conteúdos:
 
-    Estruturação do projeto (Spring MVC, Sring Data, MongoDB)
+    Estruturação do projeto (Spring MVC, Spring Data, MongoDB)
     Criação de API's
     Testes Unitários (Junit 5)
     Testes de contrato
