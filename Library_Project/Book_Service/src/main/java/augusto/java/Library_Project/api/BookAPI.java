@@ -3,9 +3,7 @@ package augusto.java.Library_Project.api;
 import augusto.java.Library_Project.dto.Book;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +15,23 @@ public class BookAPI {
 
 
 
-    @GetMapping
-    public void getBook(){
+    @GetMapping("/list")
+    public void listAllBooks(){
+
     }
 
+    @DeleteMapping("/remove/{title}")
+    public void deleteBook(){
+
+    }
+
+    @PostMapping("/insert")
+    public void addBook(){
+
+    }
+
+    @GetMapping("/find/{title}")
+    public void findBook(){
+
+    }
 }
