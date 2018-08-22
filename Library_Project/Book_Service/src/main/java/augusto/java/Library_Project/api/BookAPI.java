@@ -1,11 +1,14 @@
 package augusto.java.Library_Project.api;
 
+import augusto.java.Library_Project.input.BookInput;
 import augusto.java.Library_Project.output.BookOutput;
 import augusto.java.Library_Project.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/books")
@@ -32,8 +35,8 @@ public class BookAPI {
     }
 
     @PostMapping("/insert")
-    public void addBook(){
-
+    public ResponseEntity<?> addBook(@RequestBody @Valid BookInput bookInput){
+        //return ResponseEntity.ok();
     }
 
     @GetMapping("/find/{title}")
