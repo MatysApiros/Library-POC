@@ -1,5 +1,6 @@
 package augusto.java.Library_Project.api;
 
+import augusto.java.Library_Project.dto.Book;
 import augusto.java.Library_Project.input.BookInput;
 import augusto.java.Library_Project.output.BookOutput;
 import augusto.java.Library_Project.service.BookService;
@@ -21,8 +22,7 @@ public class BookAPI {
         this.bookService = bookService;
         this.objectMapper = objectMapper;
     }
-
-
+    
     @GetMapping("/list")
     public ResponseEntity<?> listAllBooks(){
         return ResponseEntity.ok(bookService.ListAllBooks()
@@ -36,11 +36,11 @@ public class BookAPI {
 
     @PostMapping("/insert")
     public ResponseEntity<?> addBook(@RequestBody @Valid BookInput bookInput){
-        //return ResponseEntity.ok();
+        return ResponseEntity.ok(bookService.insertBook(objectMapper.convertValue(bookInput, Book.class)));
     }
 
     @GetMapping("/find/{title}")
-    public void findBook(){
-
+    public ResponseEntity<?> findBook(@PathVariable String title){
+        return ResponseEntity.ok(objectMapper.convertValue(bookService.findBookByTitle(title), BookOutput.class));
     }
 }

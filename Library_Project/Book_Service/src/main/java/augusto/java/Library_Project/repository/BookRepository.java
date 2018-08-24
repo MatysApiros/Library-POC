@@ -24,4 +24,18 @@ public class BookRepository {
                 .map(books -> new Book(books.getInteger("id"), books.getString("title"), books.getString("author"), books.getString("genre")))
                 .collect(Collectors.toList());
     }
+
+    public String insertBook(Book book){
+        Document document  = new Document("id", book.getId())
+                .append("title", book.getTitulo())
+                .append("author",book.getAutor())
+                .append("genre", book.getGenero());
+
+        mongoCollection.insertOne(document);
+        return "Book added.";
+    }
+
+    public Book findBookByTitle(String title){
+        return mongoCollection.find().first().get(title,Book.class);
+    }
 }
