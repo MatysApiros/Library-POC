@@ -13,7 +13,7 @@ public class BookOutput {
         this.genre = genero;
     }
 
-    public BookOutput(){
+    public BookOutput() {
 
     }
 
@@ -50,7 +50,7 @@ public class BookOutput {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Id: " + id + " Titulo: " + title + " Genero: " + genre + " Autor: " + author;
     }
 }

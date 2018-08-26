@@ -14,7 +14,7 @@ public class Book {
         this.genre = genero;
     }
 
-    public Book(){
+    public Book() {
 
     }
 
@@ -51,7 +51,7 @@ public class Book {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Id: " + id + " Titulo: " + title + " Genero: " + genre + " Autor: " + author;
     }
 }
