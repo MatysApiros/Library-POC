@@ -24,13 +24,12 @@ public class BookRepository {
         List<Document> listBooks = mongoCollection.find().into(new ArrayList<Document>());
 
         return listBooks.stream()
-                .map(books -> new Book(books.getInteger("id"), books.getString("title"), books.getString("author"), books.getString("genre")))
+                .map(books -> new Book(books.getString("title"), books.getString("author"), books.getString("genre")))
                 .collect(Collectors.toList());
     }
 
     public String insertBook(Book book) {
-        Document document = new Document("id", book.getId())
-                .append("title", book.getTitulo())
+        Document document = new Document("title", book.getTitulo())
                 .append("author", book.getAutor())
                 .append("genre", book.getGenero());
 

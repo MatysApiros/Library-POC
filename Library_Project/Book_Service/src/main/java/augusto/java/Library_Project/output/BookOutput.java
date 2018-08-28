@@ -1,13 +1,11 @@
 package augusto.java.Library_Project.output;
 
 public class BookOutput {
-    private int id;
     private String title;
     private String author;
     private String genre;
 
-    public BookOutput(int id, String titulo, String autor, String genero) {
-        this.id = id;
+    public BookOutput(String titulo, String autor, String genero) {
         this.title = titulo;
         this.author = autor;
         this.genre = genero;
@@ -15,14 +13,6 @@ public class BookOutput {
 
     public BookOutput() {
 
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitulo() {
@@ -51,6 +41,6 @@ public class BookOutput {
 
     @Override
     public String toString() {
-        return "Id: " + id + " Titulo: " + title + " Genero: " + genre + " Autor: " + author;
+        return "Titulo: " + title + " Genero: " + genre + " Autor: " + author;
     }
 }

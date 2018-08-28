@@ -5,9 +5,6 @@ import javax.validation.constraints.NotEmpty;
 public class BookInput {
 
     @NotEmpty
-    private int id;
-
-    @NotEmpty
     private String title;
 
     @NotEmpty
@@ -15,14 +12,6 @@ public class BookInput {
 
     @NotEmpty
     private String genre;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getTitle() {
         return title;
