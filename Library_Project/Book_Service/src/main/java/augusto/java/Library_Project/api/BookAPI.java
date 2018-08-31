@@ -2,6 +2,7 @@ package augusto.java.Library_Project.api;
 
 import augusto.java.Library_Project.dto.Book;
 import augusto.java.Library_Project.input.BookInput;
+import augusto.java.Library_Project.mapper.BookMapper;
 import augusto.java.Library_Project.output.BookOutput;
 import augusto.java.Library_Project.service.BookService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -33,9 +34,14 @@ public class BookAPI {
         return ResponseEntity.ok(bookService.deleteBook(title));
     }
 
-    @PostMapping("/insert")
-    public ResponseEntity<?> addBook(@RequestBody @Valid BookInput bookInput) {
-        return ResponseEntity.ok(bookService.insertBook(objectMapper.convertValue(bookInput, Book.class)));
+    @RequestMapping("/insert")
+    public ResponseEntity<?> addBook(@RequestParam("title") String title, @RequestParam("author") String author, @RequestParam("genre") String genre) {
+        BookInput bookInput = new BookInput();
+        bookInput.setTitle(title);
+        bookInput.setAuthor(author);
+        bookInput.setGenre(genre);
+        bookService.insertBook(BookMapper.map(bookInput));
+        return ResponseEntity.ok("Anexado.");
     }
 
     @GetMapping("/find/{title}")

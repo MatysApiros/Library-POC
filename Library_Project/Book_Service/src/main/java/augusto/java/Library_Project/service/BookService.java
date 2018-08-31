@@ -19,11 +19,14 @@ public class BookService {
         return bookRepository.listAllBooks();
     }
 
-    public String insertBook(Book book) {
+    public Boolean insertBook(Book book) {
         if (book == null) {
-            return "Problema na insercao do livro";
+            return false;
         }
-        return bookRepository.insertBook(book);
+        else {
+            bookRepository.insertBook(book);
+            return true;
+        }
     }
 
     public Book findBookByTitle(String title) {
