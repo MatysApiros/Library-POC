@@ -28,13 +28,11 @@ public class BookRepository {
                 .collect(Collectors.toList());
     }
 
-    public String insertBook(Book book) {
-        Document document = new Document("title", book.getTitulo())
-                .append("author", book.getAutor())
-                .append("genre", book.getGenero());
+    public void insertBook(Book book) {
+        Document document = new Document("title",book.getTitulo())
+                .append("author",book.getAutor()).append("genre",book.getGenero());
 
-        mongoCollection.insertOne(document);
-        return "Book added.";
+            mongoCollection.insertOne(document);
     }
 
     public Book findBookByTitle(String title) {
