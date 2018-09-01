@@ -5,7 +5,7 @@ import augusto.java.Library_Project.input.BookInput;
 
 public class BookMapper {
 
-    public static Book map(BookInput bookInput){
+    public static Book map(BookInput bookInput) {
         Book book = new Book();
         book.setTitulo(bookInput.getTitle());
         book.setAutor(bookInput.getAuthor());

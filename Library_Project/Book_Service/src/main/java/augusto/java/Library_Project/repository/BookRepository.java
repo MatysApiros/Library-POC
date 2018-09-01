@@ -1,7 +1,6 @@
 package augusto.java.Library_Project.repository;
 
 import augusto.java.Library_Project.dto.Book;
-import com.mongodb.DBObject;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.springframework.stereotype.Repository;
@@ -30,25 +29,20 @@ public class BookRepository {
     }
 
     public void insertBook(Book book) {
-        Document document = new Document("title",book.getTitulo())
-                .append("author",book.getAutor()).append("genre",book.getGenero());
+        Document document = new Document("title", book.getTitulo())
+                .append("author", book.getAutor()).append("genre", book.getGenero());
 
-            mongoCollection.insertOne(document);
+        mongoCollection.insertOne(document);
     }
 
     public Book findBookByTitle(String title) {
-        Document document = mongoCollection.find(new Document("title",title)).first();
+        Document document = mongoCollection.find(new Document("title", title)).first();
 
         return new Book(document.getString("title"), document.getString("author"), document.getString("genre"));
     }
 
-    public Boolean deleteBook(String title) {
-        if (mongoCollection.find().first().get(title, Book.class) == null) {
-            return false;
-        } else {
-            mongoCollection.deleteOne(eq("title", title));
-            return true;
-        }
+    public void deleteBook(String title) {
+        mongoCollection.deleteOne(eq("title", title));
     }
 
 }

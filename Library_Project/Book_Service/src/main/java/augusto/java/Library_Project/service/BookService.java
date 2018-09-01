@@ -22,8 +22,7 @@ public class BookService {
     public Boolean insertBook(Book book) {
         if (book == null) {
             return false;
-        }
-        else {
+        } else {
             bookRepository.insertBook(book);
             return true;
         }
@@ -38,9 +37,13 @@ public class BookService {
     }
 
     public String deleteBook(String title) {
-        if (bookRepository.deleteBook(title))
-            return "Livro deletado.";
-        else
-            throw new NullPointerException("Livro nao encontrado.");
+        Book book = findBookByTitle(title);
+
+        if (book == null) {
+            throw new NullPointerException("Livro nao existe no banco de dados.");
+        } else {
+            bookRepository.deleteBook(title);
+            return "Livro deletado";
+        }
     }
 }

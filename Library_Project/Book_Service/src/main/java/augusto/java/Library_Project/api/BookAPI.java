@@ -1,6 +1,5 @@
 package augusto.java.Library_Project.api;
 
-import augusto.java.Library_Project.dto.Book;
 import augusto.java.Library_Project.input.BookInput;
 import augusto.java.Library_Project.mapper.BookMapper;
 import augusto.java.Library_Project.output.BookOutput;
@@ -8,8 +7,6 @@ import augusto.java.Library_Project.service.BookService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/books")
@@ -29,8 +26,8 @@ public class BookAPI {
                 .stream().map(book -> objectMapper.convertValue(book, BookOutput.class)));
     }
 
-    @DeleteMapping("/remove/{title}")
-    public ResponseEntity<?> deleteBook(@PathVariable String title) {
+    @RequestMapping("/remove")
+    public ResponseEntity<?> deleteBook(@RequestParam("title") String title) {
         return ResponseEntity.ok(bookService.deleteBook(title));
     }
 

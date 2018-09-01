@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class DatabaseConfig {
 
     @Bean
-    public MongoCollection<Document> mongoClient(){
+    public MongoCollection<Document> mongoClient() {
         return new MongoClient().getDatabase("BookDB").getCollection("BookDB");
     }
 }
