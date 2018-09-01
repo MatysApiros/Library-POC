@@ -1,6 +1,7 @@
 package augusto.java.Library_Project.repository;
 
 import augusto.java.Library_Project.dto.Book;
+import com.mongodb.DBObject;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.springframework.stereotype.Repository;
@@ -36,7 +37,9 @@ public class BookRepository {
     }
 
     public Book findBookByTitle(String title) {
-        return mongoCollection.find().first().get(title, Book.class);
+        Document document = mongoCollection.find(new Document("title",title)).first();
+
+        return new Book(document.getString("title"), document.getString("author"), document.getString("genre"));
     }
 
     public Boolean deleteBook(String title) {

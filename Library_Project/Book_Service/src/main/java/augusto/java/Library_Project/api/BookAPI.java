@@ -44,8 +44,8 @@ public class BookAPI {
         return ResponseEntity.ok("Anexado.");
     }
 
-    @GetMapping("/find/{title}")
-    public ResponseEntity<?> findBook(@PathVariable String title) {
+    @GetMapping("/find")
+    public ResponseEntity<?> findBook(@RequestParam("title") String title) {
         return ResponseEntity.ok(objectMapper.convertValue(bookService.findBookByTitle(title), BookOutput.class));
     }
 }
