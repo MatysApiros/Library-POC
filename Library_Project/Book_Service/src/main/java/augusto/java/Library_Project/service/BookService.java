@@ -22,7 +22,11 @@ public class BookService {
     public Boolean insertBook(Book book) {
         if (book == null) {
             return false;
-        } else {
+        }
+        else if(findBookByTitle(book.getTitulo()) != null){
+            return false;
+        }
+        else {
             bookRepository.insertBook(book);
             return true;
         }
