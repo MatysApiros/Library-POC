@@ -1,16 +1,18 @@
 package augusto.java.Library_Project.api;
 
+import org.springframework.http.ResponseEntity;
+
 public class UserApi {
 
-    public void addUser(){
-
+    public ResponseEntity<?> addUser(){
+        return ResponseEntity.ok();
     }
 
-    public void findUser(){
-
+    public ResponseEntity<?> findUser(){
+        return ResponseEntity.ok();
     }
 
-    public void deleteUser(){
-
+    public ResponseEntity<?> deleteUser(){
+        return ResponseEntity.ok();
     }
 }

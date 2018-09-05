@@ -11,6 +11,6 @@ public class DatabaseConfig {
 
     @Bean
     public MongoCollection<Document> mongoClient() {
-        return new MongoClient().getDatabase("book").getCollection("books");
+        return new MongoClient().getDatabase("UserDB").getCollection("UserDB");
     }
 }
